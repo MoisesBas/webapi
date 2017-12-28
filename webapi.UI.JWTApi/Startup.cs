@@ -67,12 +67,7 @@ namespace webapi.UI.JWTApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthentication();
-            //app.UseSwagger();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API Exam OAuth");
-            //});
+            app.UseAuthentication();            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

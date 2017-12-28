@@ -5,7 +5,11 @@ using webapi.core.Entities;
 
 namespace webapi.core.Interface
 {
-   public interface IUserRepository:IRepository<UserEntities>
+    /// <summary>
+    /// Interface for User Repository
+    /// </summary>
+    /// <seealso cref="webapi.core.Interface.IRepository{webapi.core.Entities.UserEntities}" />
+    public interface IUserRepository:IRepository<UserEntities>
     {
 
     }

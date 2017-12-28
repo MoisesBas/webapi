@@ -18,12 +18,27 @@ using webapi.core.Entities;
 namespace webapi.UI.JWTApi.Controllers
 {
 
+    /// <summary>
+    /// Controller for User 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [Route("api/Users")]
     public class UsersController : Controller
     {
+        /// <summary>
+        /// The user service
+        /// </summary>
         public readonly IUserService _userService;
+        /// <summary>
+        /// The configuration
+        /// </summary>
         public readonly IConfiguration _config;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UsersController"/> class.
+        /// </summary>
+        /// <param name="userService">The user service.</param>
+        /// <param name="config">The configuration.</param>
         public UsersController(IUserService userService, IConfiguration config)
         {
             _userService = userService;
@@ -31,6 +46,11 @@ namespace webapi.UI.JWTApi.Controllers
 
         }
 
+        /// <summary>
+        /// Creates the specified user.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{user}")]
         public IActionResult Create(string user)
@@ -63,6 +83,12 @@ namespace webapi.UI.JWTApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Logins the specified user.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult login(string user, string password)

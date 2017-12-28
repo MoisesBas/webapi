@@ -4,8 +4,15 @@ using webapi.core.Entities;
 
 namespace webapi.core.Mapping
 {
+    /// <summary>
+    /// User Table Mapping
+    /// </summary>
     public class UserConfiguration
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserConfiguration"/> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
         public UserConfiguration(EntityTypeBuilder<UserEntities> builder)
         {
             builder.ToTable("tblUser");
