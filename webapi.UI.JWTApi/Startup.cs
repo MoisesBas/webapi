@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using webapi.core.Interface;
 using webapi.Infrastructure.Services.Interface;
 using Swashbuckle.AspNetCore.Swagger;
+using webapi.core.Migrations;
 
 namespace webapi.UI.JWTApi
 {
@@ -37,6 +38,7 @@ namespace webapi.UI.JWTApi
             services.AddScoped(typeof(IRepositoryAsync<>), typeof(UserRepository<>));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<UserService>();
+            services.AddScoped<UserSeedData>();
             services.AddSingleton(new LoggerFactory());           
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(cfg =>
@@ -61,11 +63,16 @@ namespace webapi.UI.JWTApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserSeedData seed)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<UserContext>().Database.Migrate();
+                    seed.SeedData().Wait();
+                }
             }
             app.UseAuthentication();            
             app.UseMvc(routes =>

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi.core", "webapi.core\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi.Infrastructure.Services", "webapi.Infrastructure.Services\webapi.Infrastructure.Services.csproj", "{EC81D5BF-2D7E-4FF3-B583-0269F2C849C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapi.UI.JWTApi", "webapi.UI.JWTApi\webapi.UI.JWTApi.csproj", "{7AF0F9A4-CBA3-4CE6-9905-0C4AB0A60370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi.UI.JWTApi", "webapi.UI.JWTApi\webapi.UI.JWTApi.csproj", "{7AF0F9A4-CBA3-4CE6-9905-0C4AB0A60370}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{33F6352C-DDEE-4994-B306-F7BF108F03A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

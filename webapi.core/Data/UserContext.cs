@@ -78,7 +78,10 @@ namespace webapi.core.Data
             base.OnModelCreating(builder);
 
         }
-       
 
+        public void EnsureSeedData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
